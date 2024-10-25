@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{974CC893-73B7-4D4C-8B8B-48585FF18C70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{277BF32A-DD5F-4987-B4DE-AC3523F8979D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B3A487FC-00E7-47DF-B489-18BB6E17EFA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Core\Domain\Domain.csproj", "{8346A86B-4D24-45A8-8561-D5A3BDA75D0F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8346A86B-4D24-45A8-8561-D5A3BDA75D0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8346A86B-4D24-45A8-8561-D5A3BDA75D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8346A86B-4D24-45A8-8561-D5A3BDA75D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8346A86B-4D24-45A8-8561-D5A3BDA75D0F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8346A86B-4D24-45A8-8561-D5A3BDA75D0F} = {B3A487FC-00E7-47DF-B489-18BB6E17EFA1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ACC716B9-BFB4-42DA-8102-54BBC59D4B7D}
+	EndGlobalSection
+EndGlobal
