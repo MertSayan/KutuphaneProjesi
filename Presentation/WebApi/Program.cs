@@ -1,5 +1,7 @@
 
 using Application.Interfaces;
+using Application.MappersProfiles;
+using AutoMapper;
 using CarBook.Application.Servicess;
 using Persistence.Context;
 using Persistence.Repositories;
@@ -24,6 +26,18 @@ namespace WebApi
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+
+            //builder.Services.AddAutoMapper(typeof(MapperProfile).Assembly);
+            //builder.Services.AddAutoMapper(typeof(Application.MappersProfiles.MapperProfile).Assembly);
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new Application.MappersProfiles.MapperProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            builder.Services.AddSingleton(mapper);
+
 
             var app = builder.Build();
 

@@ -1,6 +1,7 @@
 ﻿using Application.Features.Mediator.Authors.Queries;
 using Application.Features.Mediator.Authors.Results;
 using Application.Interfaces;
+using AutoMapper;
 using Domain.Entities;
 using MediatR;
 
@@ -10,10 +11,12 @@ namespace Application.Features.Mediator.Authors.Handlers.Read
     public class GetAuthorByIdQueryHandler : IRequestHandler<GetAuthorByIdQuery,GetAuthorByIdQueryResult>
     {
         private readonly IRepository<Author> _repository;
+        private readonly IMapper _mapper;
 
-        public GetAuthorByIdQueryHandler(IRepository<Author> repository)
+        public GetAuthorByIdQueryHandler(IRepository<Author> repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
         public async Task<GetAuthorByIdQueryResult> Handle(GetAuthorByIdQuery request, CancellationToken cancellationToken)
@@ -21,16 +24,26 @@ namespace Application.Features.Mediator.Authors.Handlers.Read
             var value=await _repository.GetByIdAsync(request.Id);
             if (value != null)
             {
-                return new GetAuthorByIdQueryResult
-                {
-                    AuthorId = value.AuthorId,
-                    Name = value.Name,
-                };
+                var result = _mapper.Map<GetAuthorByIdQueryResult>(value);
+                return result;
             }
-            //throw new EntityNotFoundException("A");
-            //throw new EntityNotFoundException("Author not found");
-            //throw new Exception("Bulunamadi");
-            return null;
+            else
+            {
+                return null;
+            }
+
+
+
+            //if (value != null)
+            //{
+            //    return new GetAuthorByIdQueryResult
+            //    {
+            //        AuthorId = value.AuthorId,
+            //        Name = value.Name,
+            //    };
+            //}
+
+            //return null;
         }
     }
 }

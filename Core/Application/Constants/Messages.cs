@@ -15,6 +15,7 @@ namespace Application.Constants
         public static string EntityDeleted => $"{EntityName} verisine soft delete yapıldı.";
         public static string EntityNotFound => $"Girdiğiniz id değerine sahip {EntityName} verisi bulunamadı.";
         public static string EntityNameDuplicated => $"Bu isme sahip bir {EntityName} zaten var, lütfen ismi değiştirin.";
+        public static string EntityDeletedOrNotFound => $"Girdiğiniz id değerine sahip {EntityName} zaten silinmiş veya bulunamadı";
     }
 
 
