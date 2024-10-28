@@ -14,6 +14,7 @@ namespace Domain.Entities
         public string Language { get; set; }
         public int? TotalCopies { get; set; } = 1;
         public int? AvailableCopies { get; set; } = 1;
+        public string BookImageUrl { get; set; }
         public int AuthorId { get; set; }
         public Author Author { get; set; } 
         public int CategoryId { get; set; }

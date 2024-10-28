@@ -1,4 +1,6 @@
 ﻿using Application.Enums;
+using Application.Features.Mediator.Abouts.Commands;
+using Application.Features.Mediator.Abouts.Results;
 using Application.Features.Mediator.Authors.Commands;
 using Application.Features.Mediator.Authors.Results;
 using Application.Features.Mediator.Banners.Commands;
@@ -66,6 +68,11 @@ namespace Application.MappersProfiles
                 .ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => Rol.Üye));
             CreateMap<User, GetUserByIdQueryResult>().ReverseMap();
             CreateMap<User, GetUserQueryResult>().ReverseMap();
+
+            CreateMap<About, CreateAboutCommand>().ReverseMap();
+            CreateMap<About, UpdateAboutCommand>().ReverseMap();
+            CreateMap<About, GetAboutByIdQueryResult>().ReverseMap();
+            CreateMap<About, GetAboutQueryResult>().ReverseMap();
         }
     }
 }

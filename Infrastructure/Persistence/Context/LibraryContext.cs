@@ -25,5 +25,6 @@ namespace Persistence.Context
         public DbSet<Banner> Banners { get; set; }
         public DbSet<Feature> Features { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<About> Abouts { get; set; }
     }
 }
