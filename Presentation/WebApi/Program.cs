@@ -1,5 +1,6 @@
 
 using Application.Interfaces;
+using Application.Interfaces.BookInterface;
 using Application.MappersProfiles;
 using AutoMapper;
 using CarBook.Application.Servicess;
@@ -17,6 +18,7 @@ namespace WebApi
             // Add services to the container.
             builder.Services.AddScoped<LibraryContext>();
             builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            builder.Services.AddScoped(typeof(IBookRepository), typeof(BookRepository));
 
 
 

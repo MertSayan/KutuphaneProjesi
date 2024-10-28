@@ -12,7 +12,7 @@ namespace Application.Features.Mediator.Barrows.Results
         public int BarrowId { get; set; }
         public DateTime BarrowDate { get; set; }
         public DateTime ReturnDate { get; set; }
-        public DateTime DueDate { get; set; }
+        public DateTime? DueDate { get; set; }
         public bool IsReturned { get; set; } 
         public int UserId { get; set; }
         public int BookId { get; set; }

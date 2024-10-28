@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Mediator.Books.Results
 {
-    public class GetBookQueryResult
+    public class GetBookWithBarrowCountQueryResult
     {
         public int BookId { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
-        public string Language { get; set; }
-        public int? TotalCopies { get; set; }
         public int? AvailableCopies { get; set; }
-        public int AuthorId { get; set; }
-        public int CategoryId { get; set; }
-        public int PublisherId { get; set; }
+        public string AuthorName { get; set; }
+        public string CategoryName { get; set; }
+        public string PublisherName { get; set; }
         public string BookImageUrl { get; set; }
     }
 }

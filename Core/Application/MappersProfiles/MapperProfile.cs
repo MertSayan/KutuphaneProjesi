@@ -73,6 +73,9 @@ namespace Application.MappersProfiles
             CreateMap<About, UpdateAboutCommand>().ReverseMap();
             CreateMap<About, GetAboutByIdQueryResult>().ReverseMap();
             CreateMap<About, GetAboutQueryResult>().ReverseMap();
+
+            //CreateMap<Book, GetBookWithBarrowCountQueryResult>().ReverseMap();
+            
         }
     }
 }

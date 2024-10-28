@@ -11,7 +11,7 @@ namespace Application.Features.Mediator.Barrows.Commands
     public class UpdateBarrowCommand:IRequest
     {
         public int BarrowId { get; set; }
-        public DateTime DueDate { get; set; }
+        public DateTime? DueDate { get; set; }
         public bool IsReturned { get; set; } 
     }
 }

@@ -49,5 +49,11 @@ namespace WebApi.Controllers
             await _mediator.Send(new RemoveBookCommand(id));
             return Ok(Messages<Book>.EntityDeleted);
         }
+        [HttpGet("GetBookWithBarrowCount")]
+        public async Task<IActionResult> GetBookWithBarrowCount()
+        {
+            var values = await _mediator.Send(new GetBookWithBarrowCountQuery());
+            return Ok(values);
+        }
     }
 }

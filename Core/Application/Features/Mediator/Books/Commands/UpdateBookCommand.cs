@@ -18,5 +18,6 @@ namespace Application.Features.Mediator.Books.Commands
         public int AuthorId { get; set; }
         public int CategoryId { get; set; }
         public int PublisherId { get; set; }
+        public string BookImageUrl { get; set; }
     }
 }

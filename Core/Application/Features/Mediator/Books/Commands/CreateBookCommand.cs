@@ -17,7 +17,8 @@ namespace Application.Features.Mediator.Books.Commands
         public int CategoryId { get; set; }
         public int PublisherId { get; set; }
         public int TotalCopies { get; set; }
-        public int AvailableCopies { get; set; } 
+        public int AvailableCopies { get; set; }
+        public string BookImageUrl { get; set; }
 
 
     }
