@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "FilterByPublisher";
     Layout = "~/Views/UILayout/Index.cshtml";
 }
 
@@ -21,14 +21,9 @@
             <!-- Sağ Tarafta Kitaplar -->
             <div class="col-10">
                 <!-- Sağ panelin genişliğini 10 bıraktık -->
-                @await Component.InvokeAsync("_BookComponentPartial")
+                @await Component.InvokeAsync("_BookFilterByPublisherComponentPartial", new { publisherName = ViewBag.publisherName ?? "" })
             </div>
         </div>
     </div>
 </section>
-
-
-
-
-
 

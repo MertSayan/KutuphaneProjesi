@@ -1,0 +1,43 @@
+﻿@model List<ResultBookCategoriesAuthorsAndPublishersDto> // Bu modeli kendi filtre seçeneklerinize göre ayarlayın
+
+<div  class="container">
+    <div class="row">
+        <div  class="col-md-12">
+            <h5 id="categories" >Kategoriler</h5>
+            <ul>
+                @foreach (var category in Model.Select(x => x.CategoryName).Distinct())
+                {
+                    <li>
+                        <a href="@Url.Action("FilterByCategory", "Book", new { categoryName = category })#categories">
+                            @category
+                        </a>
+                    </li>
+                }
+            </ul>
+
+            <h5 id="authors">Yazarlar</h5>
+            <ul>
+                @foreach (var author in Model.Select(x => x.AuthorName).Distinct())
+                {
+                    <li>
+                        <a href="@Url.Action("FilterByAuthor", "Book", new { authorName = author })#authors">
+                            @author
+                        </a>
+                    </li>
+                }
+            </ul>
+
+            <h5>Yayıncılar</h5>
+            <ul>
+                @foreach (var publisher in Model.Select(x => x.PublisherName).Distinct())
+                {
+                    <li>
+                        <a href="@Url.Action("FilterByPublisher", "Book", new { publisherName = publisher })#categories">
+                            @publisher
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

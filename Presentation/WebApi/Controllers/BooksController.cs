@@ -55,5 +55,40 @@ namespace WebApi.Controllers
             var values = await _mediator.Send(new GetBookWithBarrowCountQuery());
             return Ok(values);
         }
+        [HttpGet("GetAllBookSameCategorName")]
+        public async Task<IActionResult> GetAllBookSameCategorName(string categoryName)
+        {
+            var values = await _mediator.Send(new GetAllBookWithSameCategoryNameQuery(categoryName));
+            return Ok(values);
+        }
+
+        [HttpGet("GetAllBookSameAuthorName")]
+        public async Task<IActionResult> GetAllBookSameAuthorName(string authorName)
+        {
+            var values = await _mediator.Send(new GetAllBookWithSameAuthorNameQuery(authorName));
+            return Ok(values);
+        }
+
+        [HttpGet("GetAllBookSamePublisherName")]
+        public async Task<IActionResult> GetAllBookSamePublisherName(string publisherName)
+        {
+            var values = await _mediator.Send(new GetAllBookWithSamePublisherNameQuery(publisherName));
+            return Ok(values);
+        }
+
+        [HttpGet("GetAllCategoryAuthorPublisher")]
+        public async Task<IActionResult> GetAllCategoryAuthorPublisher()
+        {
+            var values = await _mediator.Send(new GetAllBooksWithCatAutPubQuery());
+            return Ok(values);
+        }
+
+        [HttpGet("GetAllBooksForBarrow")]
+        public async Task<IActionResult> GetAllBooksForBarrow()
+        {
+            var values = await _mediator.Send(new GetAllBooksForBarrowQuery());
+            return Ok(values);
+        }
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "FilterByAuthor";
     Layout = "~/Views/UILayout/Index.cshtml";
 }
 
@@ -21,14 +21,10 @@
             <!-- Sağ Tarafta Kitaplar -->
             <div class="col-10">
                 <!-- Sağ panelin genişliğini 10 bıraktık -->
-                @await Component.InvokeAsync("_BookComponentPartial")
+                @await Component.InvokeAsync("_BookFilterByAuthorComponentPartial", new { authorName = ViewBag.authorName ?? "" })
             </div>
         </div>
     </div>
 </section>
-
-
-
-
 
 

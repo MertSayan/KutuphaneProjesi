@@ -1,0 +1,72 @@
+﻿@model List<ResultTopGiveBooks>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3">
+            <h4>Filtreler</h4>
+
+            <!-- Kategoriler -->
+            <button class="btn btn-link w-100 text-left" data-toggle="collapse" data-target="#kategoriCollapse">Kategoriler</button>
+            <div id="kategoriCollapse" class="collapse">
+                <ul class="list-unstyled pl-3">
+                    @foreach (var item in Model.Select(x => x.CategoryName).Distinct())
+                    {
+                        <li><a href="#">@item</a></li>
+                    }
+                </ul>
+            </div>
+
+            <!-- Yazarlar -->
+            <button class="btn btn-link w-100 text-left" data-toggle="collapse" data-target="#yazarCollapse">Yazarlar</button>
+            <div id="yazarCollapse" class="collapse">
+                <ul class="list-unstyled pl-3">
+                    @foreach (var item in Model.Select(x => x.AuthorName).Distinct())
+                    {
+                        <li><a href="#">@item</a></li>
+                    }
+                </ul>
+            </div>
+
+            <!-- Yayınevi -->
+            <button class="btn btn-link w-100 text-left" data-toggle="collapse" data-target="#yayineviCollapse">Yayınevi</button>
+            <div id="yayineviCollapse" class="collapse">
+                <ul class="list-unstyled pl-3">
+                    @foreach (var item in Model.Select(x => x.PublisherName).Distinct())
+                    {
+                        <li><a href="#">@item</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <!-- Kitaplar Bölümü -->
+        <div class="col-md-9">
+            <div class="row">
+                <!-- Kitap Kartları - Veritabanından Dinamik Olarak Çekilecek -->
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-2 mb-4 d-flex justify-content-center">
+                        <div class="card" style="width: 150px;">
+                            <img src="@item.BookImageUrl" class="card-img-top" alt="Kitap Resmi" style="height: 200px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title" style="font-size: 14px;">@item.Title</h5>
+                                <p class="card-text" style="font-size: 12px; color: grey;">@item.AuthorName</p>
+                                <div class="d-flex justify-content-center">
+                                    <a href="#" class="btn btn-primary btn-sm mr-2" style="width: 70px;">İncele</a>
+                                    <a href="#" class="btn btn-secondary btn-sm" style="width: 70px;">Ödünç Al</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap ve jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

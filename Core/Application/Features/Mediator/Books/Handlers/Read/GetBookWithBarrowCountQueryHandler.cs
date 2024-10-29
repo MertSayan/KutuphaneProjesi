@@ -33,6 +33,7 @@ namespace Application.Features.Mediator.Books.Handlers.Read
                 PublisherName=x.Publisher.Name,
                 Title=x.Title,
 
+
             }).ToList();
         }
     }

@@ -1,6 +1,5 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
+﻿@{
+    ViewData["Title"] = "FilterByCategory";
     Layout = "~/Views/UILayout/Index.cshtml";
 }
 
@@ -21,14 +20,8 @@
             <!-- Sağ Tarafta Kitaplar -->
             <div class="col-10">
                 <!-- Sağ panelin genişliğini 10 bıraktık -->
-                @await Component.InvokeAsync("_BookComponentPartial")
+                @await Component.InvokeAsync("_BookFilterByCategoryComponentPartial", new { categoryName = ViewBag.categoryName ?? "" })
             </div>
         </div>
     </div>
 </section>
-
-
-
-
-
-
