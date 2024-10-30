@@ -42,5 +42,17 @@ namespace LibraryWebUI.Controllers
             ViewBag.publisherName = publisherName;
             return View();
         }
+
+        public async Task<IActionResult> BookDetail(int id)
+        {
+            ViewBag.v1 = "Kitaplarımız";
+            ViewBag.v2 = "Kitap Detayı";
+            ViewBag.BookId = id;
+
+            //var client = _httpClientFactory.CreateClient();
+            //var responseMessage = await client.GetAsync($"https://localhost:7227/api/Books/" +id);
+
+            return View();
+        }
     }
 }

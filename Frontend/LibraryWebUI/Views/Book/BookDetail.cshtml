@@ -1,0 +1,7 @@
+﻿
+@{
+    ViewData["Title"] = "BookDetail";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+@await Component.InvokeAsync("_BookDetailComponentPartial", new { id = ViewBag.BookId })

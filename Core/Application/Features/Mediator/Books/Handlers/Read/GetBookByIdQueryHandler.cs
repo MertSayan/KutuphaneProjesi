@@ -1,6 +1,7 @@
 ﻿using Application.Features.Mediator.Books.Queries;
 using Application.Features.Mediator.Books.Results;
 using Application.Interfaces;
+using Application.Interfaces.BookInterface;
 using Domain.Entities;
 using MediatR;
 using System;
@@ -13,29 +14,30 @@ namespace Application.Features.Mediator.Books.Handlers.Read
 {
     public class GetBookByIdQueryHandler : IRequestHandler<GetBookByIdQuery, GetBookByIdQueryResult>
     {
-        private readonly IRepository<Book> _repository;
+        private readonly IBookRepository _repository;
 
-        public GetBookByIdQueryHandler(IRepository<Book> repository)
+        public GetBookByIdQueryHandler(IBookRepository repository)
         {
             _repository = repository;
         }
 
         public async Task<GetBookByIdQueryResult> Handle(GetBookByIdQuery request, CancellationToken cancellationToken)
         {
-            var value = await _repository.GetByIdAsync(request.Id);
+            var value = await _repository.GetBookById(request.Id);
             if(value != null)
             {
                 return new GetBookByIdQueryResult
                 {
-                    AuthorId = value.AuthorId,
+                    AuthorName = value.Author.Name,
                     BookId = value.BookId,
-                    CategoryId = value.CategoryId,
+                    CategoryName = value.Category.Name,
                     Description = value.Description,
                     Language = value.Language,
                     Title = value.Title,
                     TotalCopies = value.TotalCopies,
                     AvailableCopies = value.AvailableCopies,
-                    PublisherId = value.PublisherId
+                    PublisherName = value.Publisher.Name,
+                    BookImageUrl= value.BookImageUrl,
                 };
             }
             return null;

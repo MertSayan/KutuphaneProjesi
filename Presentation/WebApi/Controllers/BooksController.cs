@@ -25,7 +25,7 @@ namespace WebApi.Controllers
             var values = await _mediator.Send(new GetBookQuery());
             return Ok(values);
         }
-        [HttpGet("GetByID")]
+        [HttpGet("{id}")]   
         public async Task<IActionResult> GetBookById(int id)
         {
             var values = await _mediator.Send(new GetBookByIdQuery(id));

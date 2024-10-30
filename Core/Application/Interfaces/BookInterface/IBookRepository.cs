@@ -13,5 +13,6 @@ namespace Application.Interfaces.BookInterface
         Task<List<Book>> GetTopBorrowedBooksAsync();
         Task<List<Book>> HepsiniTopla();
         Task<List<Book>> GetAllBooksWithParametres(Expression<Func<Book, bool>> expression);
+        Task<Book> GetBookById(int id);
     }
 }

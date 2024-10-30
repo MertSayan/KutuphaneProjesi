@@ -32,6 +32,17 @@ namespace Persistence.Repositories
             return result;
         }
 
+        public async Task<Book> GetBookById(int id)
+        {
+            var result = await _context.Books
+                .Include(x => x.Author)
+                .Include(x => x.Category)
+                .Include(x => x.Publisher)
+                .Where(x => x.BookId == id && x.DeletedDate == null) // ID ve silinme kontrolü burada yapılır
+                .FirstOrDefaultAsync();
+            return result;
+        }
+
         public async Task<List<Book>> GetTopBorrowedBooksAsync()
         {
             var books = await _context.Books
