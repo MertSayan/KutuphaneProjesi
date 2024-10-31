@@ -34,7 +34,7 @@
             <!-- Ödünç Al Butonu -->
             <div class="mt-4 mb-5">
                 <!-- mb-5 Bootstrap'in alt marjin sınıfıdır -->
-                <a href="#" class="btn btn-primary btn-lg">Ödünç Al</a>
+                <a href="@Url.Action("Barrow", "BookBarrow", new { bookId = Model.BookId })" class="btn btn-primary btn-lg">Ödünç Al</a>
             </div>
 
         </div>

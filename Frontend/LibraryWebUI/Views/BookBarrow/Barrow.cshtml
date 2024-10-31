@@ -1,45 +1,16 @@
-﻿@model CreateBookBarrowDto
-
+﻿
 @{
     ViewData["Title"] = "Barrow";
     Layout = "~/Views/UILayout/Index.cshtml";
 }
 
 <!-- Ödünç Alma Formu -->
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <h3 class="text-center mb-4">Ödünç Alma Formu</h3>
-            <form method="post" asp-action="Barrow">
-                <!-- E-posta Alanı -->
-                <div class="form-group mb-3">
-                    <label for="email">E-posta:</label>
-                    <input type="email" class="form-control" id="email" placeholder="E-posta adresinizi girin" required>
-                </div>
+@* @await Component.InvokeAsync("_BookDetailComponentPartial"); *@
 
-                <!-- Şifre Alanı -->
-                <div class="form-group mb-3">
-                    <label for="password">Şifre:</label>
-                    <input type="password" class="form-control" id="password" placeholder="Şifrenizi girin" required>
-                </div>
 
-                <!-- Ödünç Alma Tarihi -->
-                <div class="form-group mb-3">
-                    <label for="borrowDate">Ödünç Alma Tarihi:</label>
-                    <input type="date" class="form-control" id="borrowDate" required>
-                </div>
+@await Component.InvokeAsync("_BookBarrowFormComponentPartial", new { bookId = ViewBag.BookId });
 
-                <!-- Bırakma Tarihi -->
-                <div class="form-group mb-3">
-                    <label for="returnDate">Bırakma Tarihi:</label>
-                    <input type="date" class="form-control" id="returnDate" required>
-                </div>
 
-                <!-- Gönder Butonu -->
-                <button type="submit" class="btn btn-primary btn-block">Ödünç Al</button>
-            </form>
-        </div>
-    </div>
-</div>
+
 
 

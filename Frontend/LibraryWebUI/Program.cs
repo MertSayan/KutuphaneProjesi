@@ -1,3 +1,5 @@
+using Persistence.Context;
+
 namespace LibraryWebUI
 {
     public class Program
@@ -8,7 +10,10 @@ namespace LibraryWebUI
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddHttpClient();   
+            builder.Services.AddHttpClient();
+
+            builder.Services.AddScoped<LibraryContext>();
+
 
             var app = builder.Build();
 

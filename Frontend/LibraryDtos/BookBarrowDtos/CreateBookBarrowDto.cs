@@ -13,7 +13,7 @@ namespace LibraryDtos.BookBarrowDtos
         public string UserMail { get; set; }
         public string Password { get; set; }
         public int UserId { get; set; }
-        public int BookId { get; set; }
+        public int BookId { get; set; } 
 
     }
 }

@@ -1,0 +1,42 @@
+﻿@model CreateBookBarrowDto
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h3 class="text-center mb-4">Ödünç Alma Formu</h3>
+            <form method="post" asp-action="Barrow">
+                <!-- E-posta Alanı -->
+
+                <input type="hidden" asp-for="BookId" value="@Model.BookId" />
+
+                <div class="form-group mb-3">
+                    <label for="email">E-posta:</label>
+                    <input type="email" class="form-control" id="email" asp-for="UserMail" placeholder="E-posta adresinizi girin" required>
+                </div>
+
+                <!-- Şifre Alanı -->
+                <div class="form-group mb-3">
+                    <label for="password">Şifre:</label>
+                    <input type="password" class="form-control" id="password" asp-for="Password" placeholder="Şifrenizi girin" required>
+                </div>
+
+                <!-- Ödünç Alma Tarihi -->
+                <div class="form-group mb-3">
+                    <label for="borrowDate">Ödünç Alma Tarihi:</label>
+                    <input type="date" class="form-control" id="borrowDate" asp-for="BarrowDate" required>
+                </div>
+
+                <!-- Bırakma Tarihi -->
+                <div class="form-group mb-3">
+                    <label for="returnDate">Bırakma Tarihi:</label>
+                    <input type="date" class="form-control" id="returnDate" asp-for="ReturnDate" required>
+                </div>
+
+                <!-- Gönder Butonu -->
+                <button type="submit" class="btn btn-primary btn-block">Ödünç Al</button>
+                @* <a href="/BookBarrow/Barrow/@item.BookId" class="btn btn-primary btn-sm">Ödünç Al</a> *@
+
+            </form>
+        </div>
+    </div>
+</div>
